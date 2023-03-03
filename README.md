@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Created with React JS, Tailwind, firebase
 <a href='https://netflix-clone-kappa-six-60.vercel.app'>Demo</a>
 <br />
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
