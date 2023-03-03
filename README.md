@@ -1,6 +1,6 @@
 
 # Getting Started with Create React App
-<a href='https://vercel.com/ehsan-c137/netflix-clone'>Demo</a>
+<a href='https://netflix-clone-kappa-six-60.vercel.app/'>Demo</a>
 This project was created with React JS, Tailwind css and firebase
 
 
