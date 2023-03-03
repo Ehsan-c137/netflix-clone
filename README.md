@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # Getting Started with Create React App
 <a href='https://vercel.com/ehsan-c137/netflix-clone'>Demo</a>
 This project was created with React JS, Tailwind css and firebase
+=======
+
 
 ## Available Scripts
 
