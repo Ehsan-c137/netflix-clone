@@ -12,11 +12,11 @@ To clone and run this application, you'll need [Git](https://git-scm.com), [Node
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/Ehsan-c137/Cryptoverse
+$ git clone https://github.com/Ehsan-c137/netflix-clone
 
 
 # Go into the repository
-$ cd Cryptoverse
+$ cd netflix-clone
 
 # Install dependencies
 $ yarn
