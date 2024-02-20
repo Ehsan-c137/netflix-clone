@@ -6,7 +6,6 @@ import { db } from "../firebase";
 import { doc, onSnapshot, updateDoc } from "firebase/firestore";
 
 const SavedShows = () => {
-   
    const [movies, setMovies] = useState([]);
    const { user } = UserAuth();
 
@@ -27,7 +26,7 @@ const SavedShows = () => {
    }, [user?.email]);
 
    const movieRef = doc(db, "users", `${user?.email}`);
-   console.log(movieRef);
+
    const deleteShow = async (passedId) => {
       try {
          const result = movies.filter((item) => item.id !== passedId);

@@ -5,14 +5,10 @@ import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 
 const Row = ({ title, fetchURL, rowID }) => {
    const [movies, setMovies] = useState([]);
-   const [like, setLike] = useState(false);
-   
 
    useEffect(() => {
       axios.get(fetchURL).then((response) => {
          setMovies(response.data.results);
-         
-         
       });
    }, [fetchURL]);
 
@@ -37,10 +33,8 @@ const Row = ({ title, fetchURL, rowID }) => {
             <div
                id={"slider" + rowID}
                className="w-full h-full overflow-x-scroll overflow-y-hidden whitespace-nowrap scroll-smooth scrollbar-hide relative"
-            >  
-            
-               
-               { movies.map((item, id) => {
+            >
+               {movies.map((item, id) => {
                   return <Movie item={item} key={id} />;
                })}
             </div>
