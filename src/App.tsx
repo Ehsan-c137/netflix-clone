@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import Navbar from "./componets/Navbar.jsx";
-import { AuthContextProvider } from "./context/AuthContext.jsx";
+import React from "react";
+import Navbar from "./componets/Navbar.tsx";
+import { AuthContextProvider } from "./context/AuthContext.tsx";
 import Home from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
