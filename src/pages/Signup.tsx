@@ -7,16 +7,14 @@ const Signup = () => {
    const [email, setEmail] = useState<string>("");
    const [password, setPassword] = useState<string>("");
 
-   const UserContext = UserAuth();
-   if (!UserContext || !UserContext.signUp) return null;
-   const { user, signUp } = UserContext;
+   const { signUp } = UserAuth();
    const navigate = useNavigate();
 
    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
 
       try {
-         await signUp(email, password);
+         signUp && (await signUp(email, password));
          navigate("/");
       } catch (error) {
          console.log(error);
