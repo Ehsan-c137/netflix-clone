@@ -19,11 +19,11 @@ const Row = ({ title, fetchURL, rowID }: IRowProps) => {
    }, [fetchURL]);
 
    const slideLeft = () => {
-      let slider = document.getElementById("slider" + rowID) as HTMLElement;
+      const slider = document.getElementById("slider" + rowID) as HTMLElement;
       slider.scrollLeft = slider.scrollLeft - 500;
    };
    const slideRight = () => {
-      let slider = document.getElementById("slider" + rowID) as HTMLElement;
+      const slider = document.getElementById("slider" + rowID) as HTMLElement;
       slider.scrollLeft = slider.scrollLeft + 500;
    };
 

@@ -9,7 +9,7 @@ interface IProps {
 const ProtectedRoute = ({ children }: IProps) => {
    const { user } = UserAuth();
 
-   if (!user) {
+   if (user === null) {
       return <Navigate to="/" />;
    } else {
       return children;
