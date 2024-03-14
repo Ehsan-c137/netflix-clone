@@ -10,20 +10,19 @@ import { IUser } from "../models/movie";
 const SavedShows: React.FC = () => {
    const [movies, setMovies] = useState([]);
    const userContext = UserAuth();
-   if (!userContext) return null;
    const { user } = userContext;
 
    const slideLeft = () => {
-      let slider = document.getElementById("slider") as HTMLElement;
+      const slider = document.getElementById("slider") as HTMLElement;
       slider.scrollLeft = slider.scrollLeft - 500;
    };
    const slideRight = () => {
-      let slider = document.getElementById("slider") as HTMLElement;
+      const slider = document.getElementById("slider") as HTMLElement;
       slider.scrollLeft = slider.scrollLeft + 500;
    };
 
    useEffect(() => {
-      onSnapshot(doc(db, "users", `${user.email}`), (doc) => {
+      onSnapshot(doc(db, "users", `${user?.email}`), (doc) => {
          console.log(doc.data());
          setMovies(doc.data()?.savedShow);
       });
