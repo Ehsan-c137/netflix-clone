@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { UserAuth } from "../context/AuthContext";
@@ -10,12 +11,11 @@ const Movie = ({ item }: { item: IUser }) => {
    const [like, setLike] = useState(false);
    const [saved, setSaved] = useState(false);
 
-   const userContext = UserAuth();
-   if (!userContext) return null;
-   const { user } = userContext;
+   const { user } = UserAuth();
 
    const movieID = doc(db, "users", `${user?.email}`);
    const savedShow = async () => {
+      // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
       if (user?.email) {
          setLike(!like);
          setSaved(true);
