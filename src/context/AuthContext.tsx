@@ -1,10 +1,4 @@
-import {
-   createContext,
-   useContext,
-   useEffect,
-   useState,
-   PropsWithChildren,
-} from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import auth, { db } from "../firebase";
 import {
    createUserWithEmailAndPassword,
@@ -13,20 +7,15 @@ import {
    onAuthStateChanged,
 } from "firebase/auth";
 import { setDoc, doc } from "firebase/firestore";
-import { getValue } from "@testing-library/user-event/dist/utils";
 import React from "react";
 
 interface IContextType {
    signUp?: (email: string, password: string) => void;
    logIn: (email: string, password: string) => void;
    logOut?: () => void;
-
-   user?: any;
-}
-
-interface IUser {
-   email: string;
-   password: string;
+   user?: {
+      email?: string;
+   };
 }
 
 const AuthContext = createContext<IContextType | undefined>(undefined);
@@ -55,7 +44,7 @@ export function AuthContextProvider({
 
    useEffect(() => {
       const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-         setUser(currentUser);
+         currentUser && setUser(currentUser);
       });
       return () => {
          unsubscribe();
