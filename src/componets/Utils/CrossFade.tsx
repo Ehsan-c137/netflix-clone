@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+/* eslint-disable */
 
 const usePrevious = <T extends any>(value: T) => {
    const ref = useRef<T>();
@@ -55,7 +56,7 @@ const CrossFadeImage = (props: ImageProps) => {
             });
          });
       }
-   });
+   }, [src, oldSrc, raf, resetRaf]);
 
    return (
       <div
@@ -65,7 +66,7 @@ const CrossFadeImage = (props: ImageProps) => {
             height: "100%",
          }}
       >
-         {topSrc && (
+         {topSrc.length > 0 && (
             <img
                style={{
                   position: "absolute",
@@ -88,7 +89,7 @@ const CrossFadeImage = (props: ImageProps) => {
                alt={alt}
             />
          )}
-         {/* {bottomSrc && (
+         {bottomSrc?.length > 0 && (
             <img
                style={{
                   position: "absolute",
@@ -98,7 +99,7 @@ const CrossFadeImage = (props: ImageProps) => {
                src={"./blankimage.png"}
                alt={alt}
             />
-         )} */}
+         )}
       </div>
    );
 };
