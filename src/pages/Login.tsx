@@ -7,14 +7,14 @@ const Login = () => {
    const [email, setEmail] = useState("");
    const [password, setPassword] = useState("");
    const [error, setError] = useState("");
-   const { user, logIn } = UserAuth();
+   const { logIn } = UserAuth();
    const navigate = useNavigate();
 
    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       setError("");
       try {
-         logIn && (await logIn(email, password));
+         await logIn(email, password);
          navigate("/");
       } catch (error) {
          if (error instanceof Error) {
@@ -41,7 +41,11 @@ const Login = () => {
                   >
                      Sign In
                   </h1>
-                  {error ? <p className="p-3 bg-red-400 my-2">{error}</p> : ""}
+                  {error.length > 1 ? (
+                     <p className="p-3 bg-red-400 my-2">{error}</p>
+                  ) : (
+                     ""
+                  )}
                   <form
                      onSubmit={handleSubmit}
                      className="w-full flex flex-col py-4"
