@@ -2,6 +2,7 @@ import axios from "axios";
 import Movie from "./Movie";
 import React, { useEffect, useState } from "react";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
+import PicureSkeleton from "./Skeleton";
 
 interface IRowProps {
    title: string;
@@ -49,7 +50,7 @@ const Row = ({ title, fetchURL, rowID }: IRowProps) => {
                      {Array.from({ length: 7 })
                         .fill(0)
                         .map(() => (
-                           <div className="w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] h-[100px] p-2 bg-white opacity-30 text-yellow-50 animate-pulse"></div>
+                           <PicureSkeleton />
                         ))}
                   </div>
                )}
