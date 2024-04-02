@@ -8,6 +8,8 @@ import Signup from "./pages/Signup.jsx";
 import Account from "./pages/Account.jsx";
 import PageNotFound from "./pages/PageNotFound.jsx";
 import ProtectedRoute from "./componets/ProtectedRoute.jsx";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
    return (
@@ -28,6 +30,7 @@ function App() {
                />
                <Route path="*" element={<PageNotFound />} />
             </Routes>
+            <ToastContainer />
          </AuthContextProvider>
       </>
    );
