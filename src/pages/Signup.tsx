@@ -8,16 +8,14 @@ const Signup = () => {
    const [password, setPassword] = useState<string>("");
 
    const { signUp } = UserAuth();
-   const navigate = useNavigate();
 
    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
 
       try {
-         signUp && (await signUp(email, password));
-         navigate("/");
+         signUp && signUp(email, password);
       } catch (error) {
-         console.log(error);
+         console.log(error, "error from signup");
       }
    };
 
