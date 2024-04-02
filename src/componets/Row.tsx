@@ -69,8 +69,8 @@ const Row = ({ title, fetchURL, rowID }: IRowProps) => {
                   <div className="flex gap-4">
                      {Array.from({ length: 7 })
                         .fill(0)
-                        .map(() => (
-                           <PicureSkeleton />
+                        .map((_, i) => (
+                           <PicureSkeleton key={i} />
                         ))}
                   </div>
                )}
