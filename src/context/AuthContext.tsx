@@ -7,7 +7,9 @@ import {
    onAuthStateChanged,
 } from "firebase/auth";
 import { setDoc, doc } from "firebase/firestore";
+import { toast } from "react-toastify";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 interface IContextType {
    signUp?: (email: string, password: string) => void;
@@ -26,12 +28,21 @@ export function AuthContextProvider({
    children: React.ReactNode;
 }) {
    const [user, setUser] = useState({});
+   const navigate = useNavigate();
 
    function signUp(email: string, password: string) {
-      createUserWithEmailAndPassword(auth, email, password);
-      setDoc(doc(db, "users", email), {
-         savedShows: [],
-      });
+      createUserWithEmailAndPassword(auth, email, password)
+         .then(() => {
+            setDoc(doc(db, "users", email), {
+               savedShows: [],
+            });
+            navigate("/");
+         })
+         .catch((error) => {
+            toast.error(`${error.message}`, {
+               position: "top-center",
+            });
+         });
    }
 
    function logIn(email: string, password: string) {
